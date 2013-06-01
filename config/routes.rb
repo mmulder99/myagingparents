@@ -1,6 +1,7 @@
 Myagingparent::Application.routes.draw do
   resources :emails
 
+  match 'accounts/send_message' => 'accounts#send_message'
 
   resources :accounts do
     member do
@@ -9,7 +10,6 @@ Myagingparent::Application.routes.draw do
       get 'report_location'
     end
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

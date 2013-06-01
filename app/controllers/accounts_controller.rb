@@ -114,6 +114,15 @@ class AccountsController < ApplicationController
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
   end 
 
+  def send_message
+    phone = params[:phone]
+    message = params[:message]
+    
+    send_sms(phone, message)
+    
+    render :nothing => true, :status => 200
+  end
+
   def send_sms(phone_number, message) 
     @accounts = Account.all
 
