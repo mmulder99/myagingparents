@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Hello World: Geo-enabled</title>
+    <meta name="description" content="" />
+    <meta name="author" content="thanderson" />
+
+    <script src="./scripts/webworks-1.0.4.11.js" type="text/javascript"></script>
+    <script>
+      function ready() {
+        alert("Webworks ready!");
+        console.log("WebWorks APIs are now available");
+      }
+
+      window.addEventListener("load", function(e) {
+        document.addEventListener("webworksready", ready);
+      }, false);
+    </script>
+    <script src="./scripts/geo.js"></script>
+    <script>
+      function postNotification() {
+        if (chkPostNotification.checked) {
+          new Notification("Device Information", {
+            body : "uuid: " + blackberry.identity.uuid + " IMEI: " + blackberry.identity.IMEI
+          });
+        }
+      }
+    </script>
+  </
+
+  <b
+    <div id="container">
+      <div id="button">
+        <h2>Hello Man: Geoenabled</h2>
+        <button type="button" id="btnGPSDefault" onclick="getPosition('');postNotification();">
+                Get my location
+        </button>
+        <input type="checkbox" id="chkPostNotification" >
+        Post Notification?</input>
+      </div>
+      <div id="geolocationInfo"></div>
+    </div>
+</body>
+</html>
