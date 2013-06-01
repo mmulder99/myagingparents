@@ -1,4 +1,7 @@
 Myagingparent::Application.routes.draw do
+  resources :emails
+
+
   resources :accounts do
     member do
       get 'took_walk'
