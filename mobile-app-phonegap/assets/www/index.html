@@ -15,27 +15,66 @@
         
         if (phoneNumber === null) {
         	console.log("Account not found.");
-        	$("#login").css("visibility", "visible");
-        	$("#statusUpdate").css("visibility", "hidden");
+        	hideButtons();
         }
         else {
         	console.log("Account found for phone number: " + phoneNumber);
-        	$("#login").css("visibility", "hidden");
-        	$("#statusUpdate").css("visibility", "visible");
+			showButtons();        	
         }
     }
+    
+    function hideButtons() {
+       	$("#login").css("visibility", "visible");
+       	$("#statusUpdate").css("visibility", "hidden");
+    }
+    
+    function showButtons() {
+    	$("#login").css("visibility", "hidden");
+        $("#statusUpdate").css("visibility", "visible");
+    }
+    
+    function login() {
+    	var providedPhoneNumber = $("#phoneNumber").val();
+    	console.log("Logging in with phone number: " + providedPhoneNumber);
+    	
+    	if (providedPhoneNumber === null) {
+    		alert("Please enter a valid Family Phone Number.");
+    	}
+    	else {
+    		phoneNumber = providedPhoneNumber;
+    		showButtons();
+    		console.log("Logged in with phone number: " + phoneNumber);
+    	}
+    }
+    
+    function sendNotification(message) {
+    	$.ajax({
+		    type: "GET",
+    		url: "http://142.232.167.25:3000/accounts/send_message", 
+  			data: { phone: phoneNumber, message: message },
+    		success: function(msg) {
+	    		alert("Message Sent!");
+    		},
+    		error: function(err) {
+    			alert("Sorry, but there was an error sending this notification.\n\nError:" + err.responseText); 
+    		}
+		});
+    } 
     </script>
   </head>
   <body>
-  	<div id="login" style="visibility: hidden;">
-  		<form action="visibility: hidden;">
-  			<label for="phoneNumber">Phone Number</label>
-  			<input id="phoneNumber" type="text"/>
-  			<input type="submit" onClick="alert('created');"/>
+  	<div id="login" style="visibility: visible;">
+  		<form action="#">
+  			<label for="phoneNumber">Family Phone Number</label>
+  			<input id="phoneNumber" type="text" value="6043155762"/>
+  			<a id="goButton" onClick="login();">Go!</a>
   		</form>
   	</div>
   	<div id="statusUpdate" style="visibility: hidden;">
-		Buttons go here.
+		<a id="pillsButton" onClick="sendNotification("Mom took her pills.");">Took Meds</a>
+		<a id="walkButton" onClick="sendNotification("Mom took a walk and returned.");">Went for a Walk</a>
+		<a id="mealButton" onClick="sendNotification("Mom ate her meal.");">Ate a Meal</a>
+		<a id="wellnessButton" onClick="sendNotification("Mom is well.");">I am Well =)</a>
   	</div>
   </body>
 </html>
