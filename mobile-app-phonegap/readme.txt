@@ -1,0 +1,1 @@
+Include www folder in your phonegap config.
