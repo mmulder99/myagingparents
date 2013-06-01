@@ -80,4 +80,28 @@ class AccountsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def took_walk
+    @id = params[:id]
+     
+    flash[:notice] = "Successfully sent took walk message to junior" 
+     
+    redirect_to :controller => "accounts", :action => "show", :id => @id and return
+  end
+  
+  def took_meds
+    @id = params[:id]
+
+    flash[:notice] = "Successfully sent took meds message to junior" 
+    
+    redirect_to :controller => "accounts", :action => "show", :id => @id and return
+  end
+  
+  def report_location
+    @id = params[:id]
+    
+    flash[:notice] = "Successfully sent location message to junior" 
+    
+    redirect_to :controller => "accounts", :action => "show", :id => @id and return
+  end  
 end

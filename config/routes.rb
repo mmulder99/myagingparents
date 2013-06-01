@@ -1,5 +1,11 @@
 Myagingparent::Application.routes.draw do
-  resources :accounts
+  resources :accounts do
+    member do
+      get 'took_walk'
+      get 'took_meds'
+      get 'report_location'
+    end
+  end
 
 
   # The priority is based upon order of creation:
