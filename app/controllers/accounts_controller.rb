@@ -83,6 +83,9 @@ class AccountsController < ApplicationController
   
   def took_walk
     @id = params[:id]
+
+    accounts = Account.find(@id)
+    send_sms(accounts.phone, "Going for walk.")
      
     flash[:notice] = "Successfully sent took walk message to junior" 
      
@@ -92,6 +95,9 @@ class AccountsController < ApplicationController
   def took_meds
     @id = params[:id]
 
+    accounts = Account.find(@id)
+    send_sms(accounts.phone, "I'm lost.")
+
     flash[:notice] = "Successfully sent took meds message to junior" 
     
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
@@ -99,9 +105,29 @@ class AccountsController < ApplicationController
   
   def report_location
     @id = params[:id]
+
+    accounts = Account.find(@id)
+    send_sms(accounts.phone, "Back from walk.")
     
     flash[:notice] = "Successfully sent location message to junior" 
     
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
-  end  
+  end 
+
+  def send_sms(phone_number, message) 
+    @accounts = Account.all
+
+    @account_sid = 'ACd0b7910f297a9f72e2e332da24b84f98'
+    @auth_token = 'fd18ec299f5daf0c4aeb649e36165b37'# your authtoken here
+
+    formatted_ph_no = phone_number.gsub(/[^0-9]/i, '')
+    formatted_ph_no = '1' + formatted_ph_no
+
+    # set up a client to talk to the Twilio REST API
+    @client = Twilio::REST::Client.new(@account_sid, @auth_token)
+
+    @account = @client.account
+    @message = @account.sms.messages.create({:from => '+16042277867', :to => formatted_ph_no, :body => message})
+    puts @message
+  end 
 end
