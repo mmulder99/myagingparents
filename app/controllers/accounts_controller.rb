@@ -117,8 +117,8 @@ class AccountsController < ApplicationController
   def send_sms(phone_number, message) 
     @accounts = Account.all
 
-    @account_sid = 'ACd0b7910f297a9f72e2e332da24b84f98'
-    @auth_token = 'fd18ec299f5daf0c4aeb649e36165b37'# your authtoken here
+    @account_sid = 'ACfcbafa8eeedc4d90bb8211e017bf7b74'
+    @auth_token = 'xxxxx'# your authtoken here
 
     formatted_ph_no = phone_number.gsub(/[^0-9]/i, '')
     formatted_ph_no = '1' + formatted_ph_no
@@ -127,7 +127,7 @@ class AccountsController < ApplicationController
     @client = Twilio::REST::Client.new(@account_sid, @auth_token)
 
     @account = @client.account
-    @message = @account.sms.messages.create({:from => '+16042277867', :to => formatted_ph_no, :body => message})
+    @message = @account.sms.messages.create({:from => '+17788002949', :to => formatted_ph_no, :body => message})
     puts @message
   end 
 end
