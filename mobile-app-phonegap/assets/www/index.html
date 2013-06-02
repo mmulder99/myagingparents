@@ -52,12 +52,41 @@
       
     }
 
+    #logo {
+        width: 500px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
     #statusUpdate a {
         display: block;
         height: 300px;
         width: 300px;
         float: left;
         margin: 20px;
+    }
+
+    #phoneNumber, #lblPhoneNo {
+        font-family: sans-serif;
+        width: 280px;
+        height: 50px;
+        font-size: 20pt;
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+
+    #phoneNumber {
+        float: left;
+    }
+
+    #goButton img {
+        width: 240px;
+    }
+    
+    #goButton {
+        float: left;
+        margin: 15px;
+        margin-top: 17px;
     }
    </style>
    <script type="text/javascript" charset="utf-8" src="jquery-1.10.1.min.js"></script>
@@ -82,12 +111,11 @@
     }
     
     function hideButtons() {
-       	$("#login").css("visibility", "visible");
        	$("#statusUpdate").css("visibility", "hidden");
     }
     
     function showButtons() {
-    	$("#login").css("visibility", "hidden");
+    	$("#login").slideUp();
         $("#statusUpdate").css("visibility", "visible");
     }
     
@@ -127,15 +155,19 @@
   </head>
   <body>
   	<div id="login" style="visibility: visible;">
-  		<form action="#">
-  			<label for="phoneNumber">Family Phone Number</label>
-  			<input id="phoneNumber" type="text" value="6043155762"/>
-  			<a id="goButton" onClick="login();">Go!</a>
-  		</form>
+      <img id="logo" src="images/Logo.png"/>
+            <div>
+                <label id="lblPhoneNo" for="phoneNumber">Family Phone Number</label><br/>
+                <input id="phoneNumber" type="text" value="6043155762"/>
+                <a id="goButton" onClick="login();">
+                    <img src="images/connect-me-button.png"/>
+                </a>
+            </div>
   	</div>
   	<div id="statusUpdate" style="visibility: hidden;">
 		<a id="pillsButton" onClick="sendNotification('Mom took her pills.');"><img src='images/Pill.png'/></a>
 		<a id="walkButton" onClick="sendNotification('Mom took a walk and returned.');"><img src='images/Walk.png'/></a>
+		<br clear="all"/>
 		<a id="mealButton" onClick="sendNotification('Mom ate her meal.');"><img src='images/Eat.png'/></a>
 		<a id="wellnessButton" onClick="sendNotification('Mom is well.');"><img src='images/AmOK.png'/></a>
   	</div>
