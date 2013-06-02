@@ -68,16 +68,25 @@
 
     #phoneNumber, #lblPhoneNo {
         font-family: sans-serif;
-        width: 400px;
+        width: 280px;
         height: 50px;
         font-size: 20pt;
-        margin: 30px;
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+
+    #phoneNumber {
+        float: left;
     }
 
     #goButton img {
-        display: inline;
         width: 240px;
-        margin: 30px;
+    }
+    
+    #goButton {
+        float: left;
+        margin: 15px;
+        margin-top: 17px;
     }
    </style>
    <script type="text/javascript" charset="utf-8" src="jquery-1.10.1.min.js"></script>
@@ -149,10 +158,12 @@
       <img id="logo" src="images/Logo.png"/>
   	<div id="login" style="visibility: visible;">
             <label id="lblPhoneNo" for="phoneNumber">Family Phone Number</label><br/>
-            <input id="phoneNumber" type="text" value="6043155762"/><br/>
-            <a id="goButton" onClick="login();">
-                <img src="images/BtnTry.png"/>
-            </a>
+            <div>
+                <input id="phoneNumber" type="text" value="6043155762"/>
+                <a id="goButton" onClick="login();">
+                    <img src="images/BtnTry.png"/>
+                </a>
+            <div>
   	</div>
   	<div id="statusUpdate" style="visibility: hidden;">
 		<a id="pillsButton" onClick="sendNotification('Mom took her pills.');"><img src='images/Pill.png'/></a>
