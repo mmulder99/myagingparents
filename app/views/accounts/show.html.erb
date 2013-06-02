@@ -1,6 +1,16 @@
+<head>
+<style>
+a:link {backgrond-color:#ffffff;}
+a:visited {backgrond-color:#ffffff;}
+a:hover {backgrond-color:#ffffff;}
+a:active {backgrond-color:#ffffff;}
+</style>
+</head>
+
 <p id="notice"><%= notice %></p>
 
-<%= link_to image_tag("/images/walk.png") , took_walk_account_path(@account) %> 
+
+<%= link_to image_tag("/images/walk.png") , took_walk_account_path(@account) %>
 <%= link_to image_tag("/images/meds.png"), took_meds_account_path(@account) %> 
 <%= link_to image_tag("/images/eating.png"), eating_account_path(@account) %> 
 <%= link_to image_tag("/images/ok.png"), report_status_account_path(@account) %> <br/>	
