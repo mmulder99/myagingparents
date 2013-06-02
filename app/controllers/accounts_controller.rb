@@ -85,7 +85,7 @@ class AccountsController < ApplicationController
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "Mom has gone for a walk.")
+    send_sms(accounts.phone, "Family Ping - Mom: I have finished my activity (walk).")
      
     flash[:notice] = "Successfully reported your Walk to your child." 
      
@@ -96,7 +96,7 @@ class AccountsController < ApplicationController
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "Mom has taken her medications.")
+    send_sms(accounts.phone, "Family Ping - Mom: I have taken my medications.")
 
     flash[:notice] = "Successfully reported your Medications to your child." 
     
@@ -107,7 +107,7 @@ class AccountsController < ApplicationController
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "Mom is feeling OK.")
+    send_sms(accounts.phone, "Family Ping - Mom: I am feeling OK.")
     
     flash[:notice] = "Successfully reported that you're OK to your child." 
     
@@ -118,7 +118,7 @@ class AccountsController < ApplicationController
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "Mom has eaten her meal.")
+    send_sms(accounts.phone, "Family Ping - Mom: I have finished my meal.")
     
     flash[:notice] = "Successfully reported your meal to your child." 
     
