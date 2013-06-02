@@ -24,6 +24,7 @@
     .branding {
       min-width: 300px;
       max-width: 500px;
+      float: right;
     } 
     .company-name {
       text-indent: -9999px;
@@ -32,9 +33,7 @@
       line-height: 0;
     }
     .email-sign-up {
-      position: absolute;
-      top: 0;
-      right: 0;
+      float: right;
     }
     
     .main {
@@ -68,15 +67,15 @@
 </head>
 <body>
   <div class="header">
+    <div class="email-sign-up">Email Address:<input type="email" spellcheck="false" name="email" id="email" value=""> <input type="submit" spellcheck="false" name="submit" value="Go"></div>
     <div class="branding">
       <div class="logo"><img src="images/FamilyPing-1stScreen-Orange.jpg" /></div>
       <div class="company-name">Family Ping</div>
     </div>
-    <div class="email-sign-up">Email Address:<input type="email" spellcheck="false" name="email" id="email" value=""> <input type="submit" spellcheck="false" name="submit" value="Go"></div>
   </div>
   <div class="main">
     <div class="main-left">
-      <img src="images/family" />
+      <img src="images/family.jpg" />
     </div>
     <div class="main-right">
       <h2>Enter Your Phone Number Here To Try Our Messaging Services</h2>
