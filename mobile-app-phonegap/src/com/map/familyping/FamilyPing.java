@@ -17,12 +17,12 @@
        under the License.
  */
 
-package com.binarywright.FirstApp;
+package com.map.familyping;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
 
-public class FirstApp extends DroidGap
+public class FamilyPing extends DroidGap
 {
     @Override
     public void onCreate(Bundle savedInstanceState)

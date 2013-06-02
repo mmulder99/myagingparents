@@ -54,11 +54,52 @@
 
     #statusUpdate a {
         display: block;
-        height: 300px;
-        width: 300px;
         float: left;
-        margin: 20px;
+        margin-right: 5px;
     }
+
+    #statusUpdate {
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+
+    #phoneNumber, #lblPhoneNo {
+        font-family: sans-serif;
+        width: 280px;
+        height: 40px;
+        font-size: 13pt;
+        margin-left: 20px;
+        color: #333333;
+        font-weight: bold;
+    }
+
+    #phoneNumber {
+        width: 235px;
+        float: left;
+    }
+    #login {
+        margin-top: 30px;
+    }
+    #goButton img {
+        width: 240px;
+    }
+    
+    #goButton {
+        clear: both;
+        float: left;
+        margin-top: 17px;
+        margin-left: 20px;
+    }
+
+    header {
+        background-color: #333333;
+    }
+
+    header img {
+        width: 222px;
+        margin: 5px 20px;
+    }
+
    </style>
    <script type="text/javascript" charset="utf-8" src="jquery-1.10.1.min.js"></script>
    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
@@ -82,12 +123,11 @@
     }
     
     function hideButtons() {
-       	$("#login").css("visibility", "visible");
        	$("#statusUpdate").css("visibility", "hidden");
     }
     
     function showButtons() {
-    	$("#login").css("visibility", "hidden");
+    	$("#login").slideUp();
         $("#statusUpdate").css("visibility", "visible");
     }
     
@@ -105,9 +145,9 @@
     	}
     }
     
-    function sendNotification(message) {
-    			function transferComplete(evt) {
-		  alert("Your family has been notified.");
+    function sendNotification(message, confirmMessage) {
+    	function transferComplete(evt) {
+		  alert(confirmMessage);
 		}
  
 		function transferFailed(evt) {
@@ -126,18 +166,24 @@
     </script>
   </head>
   <body>
-  	<div id="login" style="visibility: visible;">
-  		<form action="#">
-  			<label for="phoneNumber">Family Phone Number</label>
-  			<input id="phoneNumber" type="text" value="6043155762"/>
-  			<a id="goButton" onClick="login();">Go!</a>
-  		</form>
-  	</div>
+      <header>
+        <img id="logo" src="images/Logo.png"/>
+      </header>
+      <div id="login" style="visibility: visible;">
+        <div>
+                <label id="lblPhoneNo" for="phoneNumber">ENTER YOUR PHONE NUMBER</label><br/>
+                <input id="phoneNumber" type="text" value="6043155762"/><br/>
+                <a id="goButton" onClick="login();">
+                    <img src="images/connect-me-button.png"/>
+                </a>
+            </div>
+        </div>
   	<div id="statusUpdate" style="visibility: hidden;">
-		<a id="pillsButton" onClick="sendNotification('Mom took her pills.');"><img src='images/Pill.png'/></a>
-		<a id="walkButton" onClick="sendNotification('Mom took a walk and returned.');"><img src='images/Walk.png'/></a>
-		<a id="mealButton" onClick="sendNotification('Mom ate her meal.');"><img src='images/Eat.png'/></a>
-		<a id="wellnessButton" onClick="sendNotification('Mom is well.');"><img src='images/AmOK.png'/></a>
+		<a id="walkButton" onClick="sendNotification('Family Ping - Mom: I have finished my activity (walk).', 'Successfully reported your Walk to your child.');"><img class="buttonImage" src='images/Walk.png'/></a>
+		<a id="mealButton" onClick="sendNotification('Family Ping - Mom: I have finished my meal.', 'Successfully reported your meal to your child.');"><img class="buttonImage" src='images/eating.png'/></a>
+		<br clear="all"/>
+		<a id="pillsButton" onClick="sendNotification('Family Ping - Mom: I have taken my medications.', 'Successfully reported your Medications to your child.');"><img class="buttonImage" src='images/meds.png'/></a>
+		<a id="wellnessButton" onClick="sendNotification('Family Ping - Mom: I am feeling OK.', 'Successfully reported that you\'re OK to your child.');"><img class="buttonImage" src='images/ok.png'/></a>
   	</div>
   </body>
 </html>
