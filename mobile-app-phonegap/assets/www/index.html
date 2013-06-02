@@ -52,40 +52,49 @@
       
     }
 
-    #logo {
-        width: 500px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-
     #statusUpdate a {
         display: block;
         float: left;
-        margin: 20px;
+        margin: 2px;
     }
 
     #phoneNumber, #lblPhoneNo {
         font-family: sans-serif;
         width: 280px;
-        height: 50px;
-        font-size: 20pt;
-        margin-left: 30px;
-        margin-top: 10px;
+        height: 40px;
+        font-size: 13pt;
+        margin-left: 20px;
+        color: #333333;
+        font-weight: bold;
     }
 
     #phoneNumber {
+        width: 235px;
         float: left;
     }
-
+    #login {
+        margin-top: 30px;
+    }
     #goButton img {
         width: 240px;
     }
     
     #goButton {
+        clear: both;
         float: left;
-        margin: 15px;
         margin-top: 17px;
-    }    
+        margin-left: 20px;
+    }
+
+    header {
+        background-color: #333333;
+    }
+
+    header img {
+        width: 222px;
+        margin: 5px 20px;
+    }
+
    </style>
    <script type="text/javascript" charset="utf-8" src="jquery-1.10.1.min.js"></script>
    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
@@ -152,16 +161,18 @@
     </script>
   </head>
   <body>
-  	<div id="login" style="visibility: visible;">
-      <img id="logo" src="images/Logo.png"/>
-            <div>
-                <label id="lblPhoneNo" for="phoneNumber">Family Phone Number</label><br/>
-                <input id="phoneNumber" type="text" value="6043155762"/>
+      <header>
+        <img id="logo" src="images/Logo.png"/>
+      </header>
+      <div id="login" style="visibility: visible;">
+        <div>
+                <label id="lblPhoneNo" for="phoneNumber">ENTER YOUR PHONE NUMBER</label><br/>
+                <input id="phoneNumber" type="text" value="6043155762"/><br/>
                 <a id="goButton" onClick="login();">
                     <img src="images/connect-me-button.png"/>
                 </a>
             </div>
-  	</div>
+        </div>
   	<div id="statusUpdate" style="visibility: hidden;">
 		<a id="walkButton" onClick="sendNotification('Mom took a walk and returned.');"><img class="buttonImage" src='images/Walk.png'/></a>
 		<a id="mealButton" onClick="sendNotification('Mom ate her meal.');"><img class="buttonImage" src='images/eating.png'/></a>
