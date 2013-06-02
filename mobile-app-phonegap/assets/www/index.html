@@ -111,12 +111,13 @@
     }
     
     function hideButtons() {
-       	$("#login").css("visibility", "visible");
-       	$("#statusUpdate").css("visibility", "hidden");
+       	$("#login").remove();
+        $("#lblPhoneNo").remove();
+       	$("#statusUpdate").remove();
     }
     
     function showButtons() {
-    	$("#login").css("visibility", "hidden");
+    	$("#login").slideUp();
         $("#statusUpdate").css("visibility", "visible");
     }
     
@@ -163,7 +164,7 @@
                 <a id="goButton" onClick="login();">
                     <img src="images/BtnTry.png"/>
                 </a>
-            <div>
+            </div>
   	</div>
   	<div id="statusUpdate" style="visibility: hidden;">
 		<a id="pillsButton" onClick="sendNotification('Mom took her pills.');"><img src='images/Pill.png'/></a>
