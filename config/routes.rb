@@ -7,7 +7,8 @@ Myagingparent::Application.routes.draw do
     member do
       get 'took_walk'
       get 'took_meds'
-      get 'report_location'
+      get 'report_status'
+      get 'eating'
     end
   end
 
