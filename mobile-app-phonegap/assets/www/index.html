@@ -52,6 +52,10 @@
       
     }
 
+    #logo {
+        width: 500px;
+    }
+
     #statusUpdate a {
         display: block;
         height: 300px;
@@ -139,10 +143,10 @@
     </script>
   </head>
   <body>
-      <img src="images/Logo.png"/>
+      <img id="logo" src="images/Logo.png"/>
   	<div id="login" style="visibility: visible;">
             <label for="phoneNumber">Family Phone Number</label>
-            <input id="phoneNumber" type="text" value="6043155762"/>
+            <input id="phoneNumber" type="text" value="6043155762"/><br/>
             <a id="goButton" onClick="login();">
                 <img src="images/BtnTry.png"/>
             </a>
