@@ -110,8 +110,7 @@ margin-left:0px;
      <h2>Receive SMS Updates From Your Mom</h2>
 
     <%= form_for(@account) do |f| %>
-    Phone Number: 
-        <%= f.text_field :phone %>
+        <%= f.text_field :phone, :value => "Phone Number" %>
         <%= f.submit "Try It Now!", :name => "submit" %>
       
     <% end %>
