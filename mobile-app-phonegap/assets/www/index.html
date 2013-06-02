@@ -145,9 +145,9 @@
     	}
     }
     
-    function sendNotification(message) {
+    function sendNotification(message, confirmMessage) {
     	function transferComplete(evt) {
-		  alert("Your family has been notified.");
+		  alert(confirmMessage);
 		}
  
 		function transferFailed(evt) {
@@ -179,11 +179,11 @@
             </div>
         </div>
   	<div id="statusUpdate" style="visibility: hidden;">
-		<a id="walkButton" onClick="sendNotification('Mom took a walk and returned.');"><img class="buttonImage" src='images/Walk.png'/></a>
-		<a id="mealButton" onClick="sendNotification('Mom ate her meal.');"><img class="buttonImage" src='images/eating.png'/></a>
+		<a id="walkButton" onClick="sendNotification('Family Ping - Mom: I have finished my activity (walk).', 'Successfully reported your Walk to your child.');"><img class="buttonImage" src='images/Walk.png'/></a>
+		<a id="mealButton" onClick="sendNotification('Family Ping - Mom: I have finished my meal.', 'Successfully reported your meal to your child.');"><img class="buttonImage" src='images/eating.png'/></a>
 		<br clear="all"/>
-		<a id="pillsButton" onClick="sendNotification('Mom took her pills.');"><img class="buttonImage" src='images/meds.png'/></a>
-		<a id="wellnessButton" onClick="sendNotification('Mom is well.');"><img class="buttonImage" src='images/ok.png'/></a>
+		<a id="pillsButton" onClick="sendNotification('Family Ping - Mom: I have taken my medications.', 'Successfully reported your Medications to your child.');"><img class="buttonImage" src='images/meds.png'/></a>
+		<a id="wellnessButton" onClick="sendNotification('Family Ping - Mom: I am feeling OK.', 'Successfully reported that you\'re OK to your child.');"><img class="buttonImage" src='images/ok.png'/></a>
   	</div>
   </body>
 </html>
