@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Took Walk', took_walk_account_path(@account) %> <br/>
-<%= link_to 'Took Medication', took_meds_account_path(@account) %> <br/>
-<%= link_to 'Report Location', report_location_account_path(@account) %> <br/>
+<%= link_to image_tag("/images/walk.png") , took_walk_account_path(@account) %> 
+<%= link_to image_tag("/images/meds.png"), took_meds_account_path(@account) %> 
+<%= link_to image_tag("/images/eating.png"), eating_account_path(@account) %> 
+<%= link_to image_tag("/images/ok.png"), report_status_account_path(@account) %> <br/>	
 

@@ -103,16 +103,28 @@ class AccountsController < ApplicationController
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
   end
   
-  def report_location
+  def report_status
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "Back from walk.")
+    send_sms(accounts.phone, "I'm okay.")
     
     flash[:notice] = "Successfully sent location message to junior" 
     
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
   end 
+
+  def eating
+    @id = params[:id]
+
+    accounts = Account.find(@id)
+    send_sms(accounts.phone, "I've eaten.")
+    
+    flash[:notice] = "Successfully sent location message to junior" 
+    
+    redirect_to :controller => "accounts", :action => "show", :id => @id and return
+  end 
+
 
   def send_message
     phone = params[:phone]
