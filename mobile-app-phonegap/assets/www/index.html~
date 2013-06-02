@@ -59,19 +59,6 @@
         float: left;
         margin: 20px;
     }
-
-    #phoneNumber {
-        width: 400px;
-        height: 50px;
-        font-size: 30pt;
-        clear: both;
-    }
-
-    #goButton img {
-        display: inline;
-        width: 240px;
-        margin: 40px;
-    }
    </style>
    <script type="text/javascript" charset="utf-8" src="jquery-1.10.1.min.js"></script>
    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
@@ -139,13 +126,12 @@
     </script>
   </head>
   <body>
-      <img src="images/Logo.png"/>
   	<div id="login" style="visibility: visible;">
-            <label for="phoneNumber">Family Phone Number</label>
-            <input id="phoneNumber" type="text" value="6043155762"/>
-            <a id="goButton" onClick="login();">
-                <img src="images/BtnTry.png"/>
-            </a>
+  		<form action="#">
+  			<label for="phoneNumber">Family Phone Number</label>
+  			<input id="phoneNumber" type="text" value="6043155762"/>
+  			<a id="goButton" onClick="login();">Go!</a>
+  		</form>
   	</div>
   	<div id="statusUpdate" style="visibility: hidden;">
 		<a id="pillsButton" onClick="sendNotification('Mom took her pills.');"><img src='images/Pill.png'/></a>
