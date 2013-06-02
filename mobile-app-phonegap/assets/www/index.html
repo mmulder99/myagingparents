@@ -106,18 +106,22 @@
     }
     
     function sendNotification(message) {
-    	$.ajax({
-		type: "GET",
-    		url: "http://54.214.232.23:3000/accounts/send_message", 
-  		data: { phone: phoneNumber, message: message },
-  		dataType: 'html',
-    		success: function (response) {
-        		alert("Message sent!");
-      		},
-    		error: function (xhr, ajaxOptions, thrownError) {
-        		alert("Error sending message: " + thrownError);
-      		}
-		});
+    			function transferComplete(evt) {
+		  alert("Your family has been notified.");
+		}
+ 
+		function transferFailed(evt) {
+  			alert("We could not notify your family.\n\nPlease try again.");
+		}
+ 
+		var oReq = new XMLHttpRequest();
+
+		oReq.addEventListener("load", transferComplete, false);
+		oReq.addEventListener("error", transferFailed, false);
+		oReq.addEventListener("abort", transferFailed, false);
+
+		oReq.open("get", "http://54.214.232.23:3000/accounts/send_message?phone=" + phoneNumber + "&message=" + encodeURIComponent(message), true);
+		oReq.send();
     } 
     </script>
   </head>
