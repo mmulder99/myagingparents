@@ -1,6 +1,7 @@
 Myagingparent::Application.routes.draw do
   resources :emails
 
+  match 'accounts/send_message' => 'accounts#send_message'
 
   resources :accounts do
     member do
@@ -9,7 +10,6 @@ Myagingparent::Application.routes.draw do
       get 'report_location'
     end
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,7 +60,8 @@ Myagingparent::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  match ':id' => 'accounts#show'
+  root :to => 'accounts#new'
 
   # See how all your routes lay out with "rake routes"
 
