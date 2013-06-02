@@ -29,13 +29,18 @@ margin-left:0px;
 
 <h3><p id="notice"><%= notice %></p></h3>
 
+<table cellpadding=0 border=0 style="margin-left:5px">
+<tr>
+	<td><%= link_to image_tag("/images/walk.png" ),took_walk_account_path(@account) %></td>
+	<td><%= link_to image_tag("/images/eating.png"), eating_account_path(@account) %> </td>
+</tr>
 
-<%= link_to image_tag("/images/walk.png") , took_walk_account_path(@account) %>
-<%= link_to image_tag("/images/eating.png"), eating_account_path(@account) %> 
+<tr>
+<td><%= link_to image_tag("/images/meds.png"), took_meds_account_path(@account) %> </td>
+<td><%= link_to image_tag("/images/ok.png"), report_status_account_path(@account) %></td>
+</tr>
 
-<br>
-<%= link_to image_tag("/images/meds.png"), took_meds_account_path(@account) %> 
-<%= link_to image_tag("/images/ok.png"), report_status_account_path(@account) %> <br/>	
+</table>
 
 </body>
 </html>
