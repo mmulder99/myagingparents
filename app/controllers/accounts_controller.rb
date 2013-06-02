@@ -85,9 +85,9 @@ class AccountsController < ApplicationController
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "Going for walk.")
+    send_sms(accounts.phone, "Mom has gone for a walk.")
      
-    flash[:notice] = "Successfully sent took walk message to junior" 
+    flash[:notice] = "Successfully reported your Walk to your child." 
      
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
   end
@@ -96,9 +96,9 @@ class AccountsController < ApplicationController
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "I'm lost.")
+    send_sms(accounts.phone, "Mom has taken her medications.")
 
-    flash[:notice] = "Successfully sent took meds message to junior" 
+    flash[:notice] = "Successfully reported your Medications to your child." 
     
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
   end
@@ -107,9 +107,9 @@ class AccountsController < ApplicationController
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "I'm okay.")
+    send_sms(accounts.phone, "Mom is feeling OK.")
     
-    flash[:notice] = "Successfully sent location message to junior" 
+    flash[:notice] = "Successfully reported that you're OK to your child." 
     
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
   end 
@@ -118,9 +118,9 @@ class AccountsController < ApplicationController
     @id = params[:id]
 
     accounts = Account.find(@id)
-    send_sms(accounts.phone, "I've eaten.")
+    send_sms(accounts.phone, "Mom has eaten her meal.")
     
-    flash[:notice] = "Successfully sent location message to junior" 
+    flash[:notice] = "Successfully reported your meal to your child." 
     
     redirect_to :controller => "accounts", :action => "show", :id => @id and return
   end 
