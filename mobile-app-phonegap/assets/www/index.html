@@ -51,6 +51,14 @@
     .footer {
       
     }
+
+    #statusUpdate a {
+        display: block;
+        height: 300px;
+        width: 300px;
+        float: left;
+        margin: 20px;
+    }
    </style>
    <script type="text/javascript" charset="utf-8" src="jquery-1.10.1.min.js"></script>
    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
@@ -88,21 +96,21 @@
     	console.log("Logging in with phone number: " + providedPhoneNumber);
     	
     	if (providedPhoneNumber === null) {
-    		alert("Please enter a valid Family Phone Number.");
+    	    alert("Please enter a valid Family Phone Number.");
     	}
     	else {
-    		phoneNumber = providedPhoneNumber;
-    		showButtons();
-    		console.log("Logged in with phone number: " + phoneNumber);
+    	    phoneNumber = providedPhoneNumber;
+    	    showButtons();
+    	    console.log("Logged in with phone number: " + phoneNumber);
     	}
     }
     
     function sendNotification(message) {
     	$.ajax({
-		    type: "GET",
+		type: "GET",
     		url: "http://54.214.232.23:3000/accounts/send_message", 
-  			data: { phone: phoneNumber, message: message },
-  			dataType: 'html',
+  		data: { phone: phoneNumber, message: message },
+  		dataType: 'html',
     		success: function (response) {
         		alert("Message sent!");
       		},
@@ -122,10 +130,10 @@
   		</form>
   	</div>
   	<div id="statusUpdate" style="visibility: hidden;">
-		<a id="pillsButton" onClick="sendNotification('Mom took her pills.');">Took Meds</a>
-		<a id="walkButton" onClick="sendNotification('Mom took a walk and returned.');">Went for a Walk</a>
-		<a id="mealButton" onClick="sendNotification('Mom ate her meal.');">Ate a Meal</a>
-		<a id="wellnessButton" onClick="sendNotification('Mom is well.');">I am Well =)</a>
+		<a id="pillsButton" onClick="sendNotification('Mom took her pills.');"><img src='images/Pill.png'/></a>
+		<a id="walkButton" onClick="sendNotification('Mom took a walk and returned.');"><img src='images/Walk.png'/></a>
+		<a id="mealButton" onClick="sendNotification('Mom ate her meal.');"><img src='images/Eat.png'/></a>
+		<a id="wellnessButton" onClick="sendNotification('Mom is well.');"><img src='images/AmOK.png'/></a>
   	</div>
   </body>
 </html>
