@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  validates_format_of :phone, :with => /^\+?\d+(-\d+)*$/, :message => " Number is invalid"
+  validates :phone, format: { with: /^\+?\d+(-\d+)*$/ }
   
   attr_accessible :phone
 end
