@@ -76,17 +76,30 @@
 		Email Address:<input type="email" spellcheck="false" name="email" id="email" value=""> <input type="submit" spellcheck="false" name="submit" value="Go">
 	</div>
   </div>
+    
   <div class="main">
     <div class="main-left">
       <img src="images/family.jpg" />
     </div>
     <div class="main-right">
+	  <% if @account.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+	
+	      <ul>
+	      <% @account.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
       <h2>Enter Your Phone Number Here To Try Our Messaging Services</h2>
 
 		<%= form_for(@account) do |f| %>
 		
 		    <%= f.text_field :phone %>
-		    <%= f.submit "Try It Now!" %>
+		    <%= f.submit "Try It Now!", :name => "submit" %>
 			
 		<% end %>
 
